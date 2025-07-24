@@ -4,48 +4,47 @@ import boto3
 import fitz  # PyMuPDF
 import os
 from app.core.config import settings
+from app.services.ocr.utils import download_object_from_s3, read_text_from_pdfobject
 from dotenv import load_dotenv
+import json
+import ast
 
 load_dotenv()
 client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
 
-s3 = boto3.client("s3",
-            aws_access_key_id=settings.S3_ACCESS_KEY,
-            aws_secret_access_key=settings.S3_SECRET_KEY,
-            region_name=settings.S3_REGION)
-
-def download_pdf_from_s3(s3_path: str) -> bytes:
-    if not s3_path.startswith("s3://"):
-        raise ValueError("Invalid S3 path")
-
-    bucket_key = s3_path.replace("s3://", "")
-    bucket, key = bucket_key.split("/", 1)
-
-    response = s3.get_object(Bucket=bucket, Key=key)
-    return response["Body"].read()
-
-
-async def process_pdf_with_gpt(file_path: str) -> str:
-    print('file_path in ocr_pdf_agent: ', file_path)
-    try:
-        if file_path.startswith("s3://"):
-            pdf_bytes = download_pdf_from_s3(file_path)
-            doc = fitz.open("pdf", pdf_bytes)
+async def extract_fields_from_pdf(text: str, country: str, doc_class: str) -> str:
+    if country == "Brazil":
+        if doc_class == "Nota Fiscal Eletrônica (NF-e)":
+            fields_data = json.load(open('app/models/documents_models/Brazil/nfe.json'))
+        elif doc_class == "Nota Fiscal de Serviço Eletrônica (NFS-e)":
+            fields_data = json.load(open('app/models/documents_models/Brazil/nfse.json'))
+        elif doc_class == "Nota Fiscal do Consumidor Eletrônica (NFC-e)":
+            fields_data = json.load(open('app/services/models/document_models/Brazil/nfce.json'))
+        elif doc_class == "Orçamento / Proposta Comercial":
+            fields_data = json.load(open('app/models/documents_models/Brazil/proposta_comercial.json'))
+        elif doc_class == "Boleto Bancário":
+            fields_data = json.load(open('app/models/documents_models/Brazil/boleto_bancario.json'))
+        elif doc_class == "Pix":
+            fields_data = json.load(open('app/models/documents_models/Brazil/pix.json'))
         else:
-            doc = fitz.open(file_path)
+            raise ValueError(f"Documento não suportado: {doc_class}")
 
-        text = ""
-        for page in doc:
-            text += page.get_text()
+    prompt = f"""Voce é um especialista em estrair dados de {doc_class}. 
+                         Os campos a serem extraidos são: {fields_data} . Nesse json as chaves são os campos do tipo de documento {doc_class}, para cada campo temos:
+                         - descricao: descrição do campo
+                         - caracteristicas: caracteristicas do campo
+                         - localizacao_tradicional: localizacao tradicional do campo dentro do documento
 
-    except Exception as e:
-        return f"Erro ao processar PDF: {str(e)}"
+                         De acordo com a descrição, características e localização, localize todos esses campos no documento {text} e extraia os valores.
+                         
+                         Retorne um json com todos os campos extraidos e seus respectivos valores achados no documento.
+                         Não retorne nenhum outro texto além do json.
 
-    prompt = f"Extraia e organize o texto do seguinte documento:\n\n{text}"
+                """
 
     response = await client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[{"role": "user", "content": prompt}]
     )
 
-    return response.choices[0].message.content.strip()
+    return ast.literal_eval(response.choices[0].message.content.strip().replace('```json', '').replace('```', ''))

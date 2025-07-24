@@ -17,9 +17,7 @@ def get_db():
 @router.post("/documents/upload", tags=["Documents"])
 async def upload_document(
     file: UploadFile = File(...),
-    document_type: str = Form(...),
     country: str = Form(...),
-    language: str = Form(None),
     client_id: str = Form(...),
     source: str = Form("web"),
     db: Session = Depends(get_db)
@@ -34,9 +32,7 @@ async def upload_document(
     try:
         doc = Document(
             client_id=client_id,
-            document_type=document_type,
             country=country,
-            language=language,
             source=source,
             s3_url=s3_url
         )
@@ -48,7 +44,7 @@ async def upload_document(
   
     try:
         print('s3_url', s3_url)
-        ocr_result = await ocr_orchestrator(s3_url)
+        ocr_result = await ocr_orchestrator(s3_url, country)
     except Exception as e:
         return {"status": "error", "detail": f"Error processing OCR: {str(e)}"}
    

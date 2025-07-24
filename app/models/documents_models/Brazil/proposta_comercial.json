@@ -1,0 +1,58 @@
+{
+    "numero_da_proposta": {
+      "descricao": "Identificador numérico único da proposta comercial ou orçamento.",
+      "caracteristicas": "Numérico ou alfanumérico sequencial, definido pelo sistema interno ou ERP.",
+      "localizacao_tradicional": "Canto superior direito ou no cabeçalho do documento"
+    },
+    "data_da_proposta": {
+      "descricao": "Data de emissão da proposta comercial.",
+      "caracteristicas": "Formato de data local (ex: 23/07/2025).",
+      "localizacao_tradicional": "Cabeçalho da proposta, geralmente à esquerda"
+    },
+    "nome_ou_razao_social_do_cliente": {
+      "descricao": "Nome ou razão social do cliente (pessoa física ou jurídica).",
+      "caracteristicas": "Texto livre.",
+      "localizacao_tradicional": "Seção de identificação do cliente, abaixo do cabeçalho"
+    },
+    "cnpj_ou_cpf_do_cliente": {
+      "descricao": "Número do CPF ou CNPJ do cliente.",
+      "caracteristicas": "CPF: 11 dígitos, CNPJ: 14 dígitos.",
+      "localizacao_tradicional": "Ao lado ou abaixo do nome do cliente"
+    },
+    "descricao_dos_itens_ou_servicos": {
+      "descricao": "Lista detalhada de produtos ou serviços ofertados.",
+      "caracteristicas": "Inclui código, descrição, unidade, quantidade, valor unitário e subtotal por item.",
+      "localizacao_tradicional": "Corpo principal da proposta em formato de tabela"
+    },
+    "valor_total_da_proposta": {
+      "descricao": "Soma total de todos os itens da proposta, com ou sem impostos.",
+      "caracteristicas": "Numérico, com duas casas decimais.",
+      "localizacao_tradicional": "Rodapé ou lateral inferior direita da proposta"
+    },
+    "condicoes_de_pagamento": {
+      "descricao": "Formas e prazos de pagamento ofertadas ao cliente.",
+      "caracteristicas": "Texto livre ou campos estruturados: ex. '30/60/90 dias', 'PIX à vista', etc.",
+      "localizacao_tradicional": "Abaixo do valor total ou em seção própria"
+    },
+    "prazo_de_validade_da_proposta": {
+      "descricao": "Data limite para o aceite da proposta pelo cliente.",
+      "caracteristicas": "Data futura definida em dias corridos (ex: 'válida por 10 dias').",
+      "localizacao_tradicional": "Rodapé da proposta ou abaixo do título"
+    },
+    "prazo_de_entrega": {
+      "descricao": "Tempo estimado entre o aceite e a entrega dos itens ou início dos serviços.",
+      "caracteristicas": "Dias úteis ou corridos, conforme negociação.",
+      "localizacao_tradicional": "Próximo às condições comerciais"
+    },
+    "responsavel_pela_proposta": {
+      "descricao": "Nome do vendedor ou representante comercial responsável.",
+      "caracteristicas": "Texto (nome completo). Pode incluir e-mail e telefone.",
+      "localizacao_tradicional": "Rodapé ou lateral esquerda, como assinatura"
+    },
+    "observacoes_adicionais": {
+      "descricao": "Campo livre para condições especiais, observações contratuais, cláusulas ou comentários.",
+      "caracteristicas": "Texto livre.",
+      "localizacao_tradicional": "Rodapé ou final da proposta"
+    }
+  }
+  

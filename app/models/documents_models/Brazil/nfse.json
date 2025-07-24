@@ -1,0 +1,83 @@
+{
+    "numero_da_nota_de_servico": {
+      "descricao": "Número sequencial da nota fiscal de serviço.",
+      "caracteristicas": "Numérico, único por prestador e série.",
+      "localizacao_tradicional": "Canto superior direito da NFS-e"
+    },
+    "serie_da_nota": {
+      "descricao": "Série da NFS-e utilizada pelo prestador.",
+      "caracteristicas": "Alfanumérico, geralmente 'R' ou '1'.",
+      "localizacao_tradicional": "Próximo ao número da nota"
+    },
+    "data_e_hora_de_emissao": {
+      "descricao": "Data e hora de emissão da nota fiscal de serviço.",
+      "caracteristicas": "Formato ISO 8601 com data e hora.",
+      "localizacao_tradicional": "Campo visível no cabeçalho"
+    },
+    "codigo_verificacao": {
+      "descricao": "Código gerado para verificar a autenticidade da NFS-e.",
+      "caracteristicas": "Código alfanumérico, usado para consulta no site da prefeitura.",
+      "localizacao_tradicional": "Topo ou rodapé da NFS-e"
+    },
+    "natureza_do_servico": {
+      "descricao": "Descrição da natureza do serviço prestado conforme tabela municipal.",
+      "caracteristicas": "Texto padronizado ou código conforme legislação do município.",
+      "localizacao_tradicional": "Corpo da nota, junto à descrição dos serviços"
+    },
+    "descricao_dos_servicos": {
+      "descricao": "Descrição detalhada do(s) serviço(s) prestado(s).",
+      "caracteristicas": "Texto livre, com ou sem limite de caracteres, dependendo da prefeitura.",
+      "localizacao_tradicional": "Quadro central da NFS-e"
+    },
+    "valor_total_dos_servicos": {
+      "descricao": "Valor total cobrado pelos serviços prestados.",
+      "caracteristicas": "Numérico, com duas casas decimais.",
+      "localizacao_tradicional": "Quadro de totais ou resumo fiscal"
+    },
+    "aliquota_iss": {
+      "descricao": "Alíquota do ISS aplicada sobre o serviço.",
+      "caracteristicas": "Percentual, conforme legislação municipal.",
+      "localizacao_tradicional": "Quadro de impostos"
+    },
+    "valor_iss": {
+      "descricao": "Valor do ISS calculado sobre o serviço.",
+      "caracteristicas": "Numérico, baseado na alíquota e no valor do serviço.",
+      "localizacao_tradicional": "Quadro de impostos"
+    },
+    "cnpj_prestador": {
+      "descricao": "CNPJ da empresa prestadora do serviço.",
+      "caracteristicas": "14 dígitos numéricos.",
+      "localizacao_tradicional": "Cabeçalho da nota, junto ao nome da empresa"
+    },
+    "razao_social_prestador": {
+      "descricao": "Razão social da empresa prestadora do serviço.",
+      "caracteristicas": "Texto.",
+      "localizacao_tradicional": "Cabeçalho da nota"
+    },
+    "endereco_prestador": {
+      "descricao": "Endereço completo do prestador de serviço.",
+      "caracteristicas": "Texto livre: logradouro, número, bairro, cidade, UF, CEP.",
+      "localizacao_tradicional": "Logo abaixo do nome da empresa"
+    },
+    "cnpj_tomador": {
+      "descricao": "CNPJ ou CPF do tomador (cliente do serviço).",
+      "caracteristicas": "14 dígitos (CNPJ) ou 11 dígitos (CPF).",
+      "localizacao_tradicional": "Corpo da nota, seção 'Tomador'"
+    },
+    "razao_social_tomador": {
+      "descricao": "Razão social ou nome do cliente.",
+      "caracteristicas": "Texto.",
+      "localizacao_tradicional": "Seção do tomador"
+    },
+    "endereco_tomador": {
+      "descricao": "Endereço completo do tomador do serviço.",
+      "caracteristicas": "Texto livre: logradouro, número, bairro, cidade, UF, CEP.",
+      "localizacao_tradicional": "Abaixo do nome do tomador"
+    },
+    "informacoes_complementares": {
+      "descricao": "Observações complementares inseridas na nota.",
+      "caracteristicas": "Texto livre para mensagens legais, contratuais ou fiscais.",
+      "localizacao_tradicional": "Rodapé da NFS-e"
+    }
+  }
+  

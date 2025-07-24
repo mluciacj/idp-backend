@@ -1,0 +1,58 @@
+{
+    "numero_da_nota_fiscal": {
+      "descricao": "Número sequencial da nota fiscal.",
+      "caracteristicas": "Numérico, único por série.",
+      "localizacao_tradicional": "Parte superior direita da NF-e"
+    },
+    "serie_da_nota_fiscal": {
+      "descricao": "Identifica a série da nota fiscal.",
+      "caracteristicas": "Numérico, geralmente '1' para série normal.",
+      "localizacao_tradicional": "Próximo ao número da NF, canto superior direito"
+    },
+    "chave_de_acesso_da_nota_fiscal": {
+      "descricao": "Chave numérica com 44 dígitos que identifica unicamente a NF-e.",
+      "caracteristicas": "Gerada automaticamente, contém UF, CNPJ, número, série etc.",
+      "localizacao_tradicional": "Topo da DANFE, em destaque com código de barras"
+    },
+    "natureza_da_operacao": {
+      "descricao": "Descrição da natureza da operação fiscal (ex: Venda, Devolução).",
+      "caracteristicas": "Texto descritivo.",
+      "localizacao_tradicional": "Logo abaixo do cabeçalho da DANFE"
+    },
+    "data_e_hora_de_emissao": {
+      "descricao": "Data e hora da emissão da nota.",
+      "caracteristicas": "Formato ISO 8601 (ex: 2025-07-23T14:30:00-03:00).",
+      "localizacao_tradicional": "Canto superior da DANFE, abaixo do número e série"
+    },
+    "dados_do_emitente": {
+      "descricao": "Informações do emissor da nota fiscal.",
+      "caracteristicas": "Contém CNPJ, razão social, endereço, inscrição estadual etc.",
+      "localizacao_tradicional": "Logo abaixo do título 'Emitente', lado esquerdo da DANFE"
+    },
+    "dados_do_destinatario": {
+      "descricao": "Informações do destinatário (cliente).",
+      "caracteristicas": "Contém CNPJ, razão social, endereço, IE etc.",
+      "localizacao_tradicional": "Logo abaixo dos dados do emitente"
+    },
+    "itens_da_nota_fiscal": {
+      "descricao": "Lista de produtos ou serviços vendidos.",
+      "caracteristicas": "Cada item contém código, descrição, NCM, CFOP, quantidade, valor etc.",
+      "localizacao_tradicional": "Tabela central da DANFE"
+    },
+    "totais_da_nota_fiscal": {
+      "descricao": "Valores consolidados da nota fiscal (impostos, frete, total etc.).",
+      "caracteristicas": "Contém campos como ICMS, IPI, valor total dos produtos e da nota.",
+      "localizacao_tradicional": "Parte inferior da DANFE, antes das informações adicionais"
+    },
+    "dados_do_pagamento": {
+      "descricao": "Forma(s) de pagamento utilizada(s).",
+      "caracteristicas": "Informações como tipo (dinheiro, cartão, boleto) e valor pago.",
+      "localizacao_tradicional": "Abaixo do quadro de totais"
+    },
+    "informacoes_adicionais_da_nf": {
+      "descricao": "Campo para informações complementares ao fisco ou cliente.",
+      "caracteristicas": "Texto livre, pode conter mensagens ou observações legais.",
+      "localizacao_tradicional": "Rodapé da DANFE"
+    }
+  }
+  

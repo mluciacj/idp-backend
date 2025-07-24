@@ -1,0 +1,63 @@
+{
+    "numero_da_nfce": {
+      "descricao": "Número sequencial da NFC-e (Nota Fiscal do Consumidor Eletrônica).",
+      "caracteristicas": "Numérico, único por série.",
+      "localizacao_tradicional": "Canto superior direito da NFC-e (DANFE NFC-e)"
+    },
+    "serie_da_nfce": {
+      "descricao": "Série da NFC-e utilizada pelo estabelecimento.",
+      "caracteristicas": "Numérico, geralmente '1' ou '900'.",
+      "localizacao_tradicional": "Próximo ao número da nota"
+    },
+    "data_e_hora_de_emissao": {
+      "descricao": "Data e hora da emissão da NFC-e.",
+      "caracteristicas": "Formato ISO 8601 com data e hora.",
+      "localizacao_tradicional": "Cabeçalho da NFC-e, abaixo do número"
+    },
+    "chave_de_acesso": {
+      "descricao": "Chave de acesso única da NFC-e com 44 dígitos.",
+      "caracteristicas": "Gerada com base em dados como CNPJ, série, número e código verificador.",
+      "localizacao_tradicional": "Topo ou rodapé da DANFE NFC-e com código QR"
+    },
+    "qr_code_consulta": {
+      "descricao": "Link com QR Code para consulta da NFC-e na SEFAZ.",
+      "caracteristicas": "Código visual bidimensional + link digital.",
+      "localizacao_tradicional": "Rodapé da NFC-e"
+    },
+    "informacoes_do_emitente": {
+      "descricao": "Informações da empresa que está emitindo a NFC-e.",
+      "caracteristicas": "CNPJ, razão social, endereço e IE.",
+      "localizacao_tradicional": "Logo abaixo do cabeçalho"
+    },
+    "cpf_ou_cnpj_do_consumidor": {
+      "descricao": "CPF ou CNPJ do consumidor (opcional).",
+      "caracteristicas": "11 dígitos (CPF) ou 14 dígitos (CNPJ).",
+      "localizacao_tradicional": "Topo da NFC-e, abaixo dos dados do emitente (se fornecido)"
+    },
+    "itens_da_compra": {
+      "descricao": "Lista de produtos adquiridos na venda ao consumidor.",
+      "caracteristicas": "Contém descrição, quantidade, unidade, valor unitário e valor total.",
+      "localizacao_tradicional": "Tabela central da NFC-e"
+    },
+    "valor_total_dos_itens": {
+      "descricao": "Soma do valor de todos os itens da compra.",
+      "caracteristicas": "Numérico, com duas casas decimais.",
+      "localizacao_tradicional": "Resumo final da NFC-e"
+    },
+    "valor_total_da_nfce": {
+      "descricao": "Valor total a ser pago pelo consumidor, incluindo descontos, impostos e acréscimos.",
+      "caracteristicas": "Numérico, com duas casas decimais.",
+      "localizacao_tradicional": "Parte inferior da NFC-e, destaque em negrito"
+    },
+    "formas_de_pagamento": {
+      "descricao": "Formas de pagamento utilizadas na compra (dinheiro, cartão, PIX, etc).",
+      "caracteristicas": "Lista de meios de pagamento e seus respectivos valores.",
+      "localizacao_tradicional": "Logo após o total da nota"
+    },
+    "informacoes_adicionais": {
+      "descricao": "Informações complementares ao consumidor ou exigências legais.",
+      "caracteristicas": "Texto livre.",
+      "localizacao_tradicional": "Rodapé da NFC-e"
+    }
+  }
+  
