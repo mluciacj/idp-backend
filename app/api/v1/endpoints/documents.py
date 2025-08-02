@@ -8,7 +8,8 @@ from pydantic import BaseModel
 from app.core.database import SessionLocal
 from app.models.document import Document
 from app.api.v1.endpoints.utils import export_documents_data
-from typing import Optional
+from typing import Optional, List
+from pydantic import BaseModel
 
 router = APIRouter()
 
@@ -18,6 +19,9 @@ def get_db():
         yield db
     finally:
         db.close()
+
+class DocumentDownloadRequest(BaseModel):
+    document_ids: List[str]
 
 @router.get("/documents", tags=["Documents"])
 def list_documents(
@@ -148,12 +152,11 @@ def download_document(document_id: str, format: str = "json", db: Session = Depe
 
 @router.post("/documents/download/by-ids", tags=["Documents"])
 def download_documents_by_ids(
-    request: Request,
-    format: str = "json",
+    request: DocumentDownloadRequest,
+    format: str = "csv",
     db: Session = Depends(get_db)
 ):
-    body = request.json()  # expects: {"document_ids": ["id1", "id2", ...]}
-    document_ids = body.get("document_ids", [])
+    document_ids = request.document_ids
     
     if not document_ids:
         raise HTTPException(status_code=400, detail="No document IDs provided.")
