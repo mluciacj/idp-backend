@@ -27,5 +27,6 @@ COPY . .
 
 # Define o comando padrão para iniciar o app
 # Ajuste esse comando conforme o seu arquivo principal (main.py, app.py, etc)
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "10000"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "10000"]
+
 
