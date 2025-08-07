@@ -6,7 +6,7 @@ import pandas as pd
 from datetime import datetime
 from pydantic import BaseModel
 from app.core.database import SessionLocal
-from app.models.document import Document
+from app.models.data_models.document import Document
 from app.api.v1.endpoints.utils import export_documents_data
 from typing import Optional, List
 from pydantic import BaseModel

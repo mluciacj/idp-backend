@@ -1,7 +1,7 @@
 from fastapi import APIRouter, File, UploadFile, Form, Depends
 from sqlalchemy.orm import Session
 from app.core.database import get_db
-from app.models.document import Document
+from app.models.data_models.document import Document
 from app.services.ocr.orchestrator_agent import ocr_orchestrator
 from app.services.storage.s3 import upload_to_s3
 import asyncio
